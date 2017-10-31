@@ -12,4 +12,5 @@
 
 <p>Order total: <strong><%= "$#{@cart.total.to_f/100}" %></strong> </p>
 
-<%= button_to "Checkout", checkout_path if current_user.current_cart != nil %>
+
+<%= button_to "Checkout", checkout_path if current_user.current_cart != nil%>

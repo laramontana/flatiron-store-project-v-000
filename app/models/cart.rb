@@ -24,9 +24,8 @@ class Cart < ActiveRecord::Base
   def checkout
     self.status = "submitted"
     self.line_items.each do |line_item|
-      item = line_item.item
-      item.inventory = item.inventory - line_item.quantity
-      item.save
+      line_item.item.inventory = line_item.item.inventory - line_item.quantity
+      line_item.item.save
     end
   end
 

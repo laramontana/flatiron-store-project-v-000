@@ -3,11 +3,6 @@
 <ul>
 <% @category.items.each do |item| %>
     <li><%= link_to item.title, item_path(item) %> <%= "$#{item.price.to_f/100}" %></li>
-
-    <% if user_signed_in? %>
-      <%= button_to 'Add to Cart', {:controller => "line_items", :action => "create", :item_id => item.id } , :method=>:post  %>
-    <% end %>
-
-
+      <%= button_to 'Add to Cart', line_items_path(item_id: item) if user_signed_in?%>
 <% end %>
 </ul>

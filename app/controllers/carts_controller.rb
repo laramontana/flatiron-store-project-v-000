@@ -1,13 +1,12 @@
 class CartsController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
 
   def show
-    @current_cart = current_user.current_cart
+    @cart = Cart.find(params[:id])
   end
 
   def checkout
 
-    redirect_to cart_path(params[])
   end
 
 
